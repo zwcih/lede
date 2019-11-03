@@ -24,6 +24,26 @@ local v2ray = {
             destOverride = { "http", "tls" }
         }
     },
+    -- ipv6 inbound
+    inboundDetour = {
+        {
+            protocol = "dokodemo-door",
+            port = "1235",
+            settings  = {
+                network = proto,
+                followRedirect = true
+            },
+            streamSettings = {
+                sockopt = {
+                tproxy = "tproxy"
+                }
+            },
+            sniffing = {
+                enabled = true,
+                destOverride = { "http", "tls" }
+                }
+        }
+    },
     -- 传出连接
     outbound = {
         protocol = "vmess",
